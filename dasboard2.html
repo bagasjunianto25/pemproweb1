@@ -1,0 +1,152 @@
+<html>
+<head>
+    <title>Traffic Sources</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #fff;
+        }
+        .container {
+            width: 80%;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        canvas {
+            display: block;
+            box-sizing: border-box;
+            height: 300px;
+            width: 600px;
+        }
+        .comments-section {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .comments-section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .comment {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .comment h3 {
+            font-size: 16px;
+            margin: 0 0 5px 0;
+        }
+        .comment p {
+            margin: 0;
+        }
+        .comment-form {
+            margin-top: 20px;
+        }
+        .comment-form textarea {
+            height: 39px;
+            width: 655px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .comment-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Grafik Aktivitas Bulan Ini</h2>
+        <canvas id="trafficChart" width="600" height="300"></canvas>
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <div class="comment-form">
+                <textarea id="commentText" placeholder="Add a comment..."></textarea>
+                <button onclick="addComment()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('trafficChart').getContext('2d');
+        const trafficChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan 2023', 'Feb 2023', 'Mar 2023', 'Apr 2023', 'May 2023', 'Jun 2023', 'Jul 2023', 'Aug 2023', 'Sep 2023', 'Oct 2023', 'Nov 2023', 'Dec 2023'],
+                datasets: [
+                    {
+                        label: 'Website Blog',
+                        data: [200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Social Media',
+                        data: [150, 250, 350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1250],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Emails',
+                        data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Paid Ads',
+                        data: [50, 150, 250, 350, 450, 550, 650, 750, 850, 950, 1050, 1150],
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Referrals',
+                        data: [25, 125, 225, 325, 425, 525, 625, 725, 825, 925, 1025, 1125],
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function addComment() {
+            const commentText = document.getElementById('commentText').value;
+            if (commentText.trim() !== '') {
+                const commentsSection = document.querySelector('.comments-section');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<h3>Anonymous</h3><p>${commentText}</p>`;
+                commentsSection.insertBefore(newComment, commentsSection.querySelector('.comment-form'));
+                document.getElementById('commentText').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

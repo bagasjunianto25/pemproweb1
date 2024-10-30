@@ -1,0 +1,145 @@
+/* Global reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #5b86e5;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="none" stroke="%23ffffff" stroke-width="2"><path d="M2 26L32 16l30 10-30 10z"/><path d="M32 46L2 26m60 0L32 46v6l16-10M16 42l16 10"/></g></svg>'); /* SVG for graduation caps */
+    background-size: 150px;
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login Container Styling */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Login Box Title */
+.login-box h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Input Group Styling */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #5b86e5;
+    outline: none;
+}
+
+/* Password Wrapper (for password visibility toggle) */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Button Styling */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #5b86e5;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-btn:hover {
+    background-color: #4e75cc;
+    transform: translateY(-3px);
+}
+
+.login-btn:active {
+    background-color: #4767b3;
+    transform: translateY(0);
+}
+
+/* Success Page Styling */
+.success-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.success-box h2 {
+    color: #5b86e5;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.success-box p {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    background-color: #5b86e5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #4e75cc;
+}
