@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Universitas</title>
+    <link rel="stylesheet" href="TampilanProject.css"> 
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login Mahasiswa</h2>
+            <!-- Form for student login -->
+            <form action="success.html" method="post"> 
+                <div class="input-group">
+                    <!-- Label associated with username input -->
+                    <label for="username">NIM:</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan NIM" required>
+                </div>
+                <div class="input-group">
+                    <!-- Label associated with password input -->
+                    <label for="password">Kata Sandi:</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+                        <span id="togglePassword" class="toggle-password" style="cursor:pointer;">👁</span>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn">Masuk</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for password visibility toggle -->
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute between password and text
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // Toggle the icon text
+            this.textContent = type === 'password' ? '👁' : '🙈';
+        });
+    </script>
+</body>
+</html>
